@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="details">
+    <li>
+        <img src="" alt="">
+        <p></p>
+    </li>
+</ul>
+<script src="jquery-1.11.0.js"></script>
+<script>
+    $(function () {
+        $.get("details.php",{id:1},function (data) {
+            console.log(data);
+            data=JSON.parse(data);
+            console.log(data);
+        })
+    })
+
+</script>
+</body>
+</html>

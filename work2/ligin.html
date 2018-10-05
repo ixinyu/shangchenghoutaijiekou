@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+用户名：<input type="text" class="usename"><br />
+密码：<input type="text" class="mima"> <br />
+<input type="button" value="登录" class="btn">
+
+<script src="jquery-1.11.0.js"></script>
+<script>
+    $(function () {
+        $(".btn").click(function () {
+            $.get("login.php",{usename:$(".usename").val()},function (data) {
+                console.log(data);
+            })
+        })
+    })
+</script>
+</body>
+</html>
