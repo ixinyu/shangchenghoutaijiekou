@@ -1,6 +1,8 @@
 <?php
 header("content-type:text/html;charset=utf-8");
 include_once "connect.php";
+/*$olink="alter table protects add constraint fk_sid foreign key
+(uid) references users(uid)";*/
 $sql ="select * from protects";
 $result=$conn->query($sql);
 if($result->num_rows){

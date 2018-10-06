@@ -8,7 +8,7 @@ $sql1="select id from users where usename=$usename";
 $result1=$conn->query($sql1);
 if($result->num_rows>0){
     while ($row=$result1->fetch_assoc()) {
-        $oid = $row["id"];
+        $oid = $row["uid"];
     }
 
    $data=array("code"=>"1",
