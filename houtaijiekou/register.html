@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+用户名：<input type="text" id="usename"><br />
+密码：<input type="text" id="password"><br />
+<input type="button" value="注册" id="btn"> <br />
+<input type="button" value="添加商品" id="pro"><br />
+<input type="button" value="获取购物车列表" class="cart"><br />
+<input type="button" value="修改购物车 + " class="car1"><br />
+<input type="button" value="修改购物车 - " class="car2"><br />
+<input type="button" value="修改购物车 del " class="car3"><br />
+</body>
+
+<script src="jquery-1.11.0.js"></script>
+<script>
+    $(function () {
+       $("#btn").click(function () {
+        $.get("register.php",{
+            usename:$("#usename").val(),
+            password:$("#password").val()
+        },function (data) {
+            console.log(data);
+        })
+       })
+        //商品页
+        $.get("protects.php",function (data) {
+            data=JSON.parse(data);
+            console.log(data);
+
+
+        })
+        //详情页
+        $.get("details.php",{id:1},function (data) {
+            // console.log(data);
+            data=JSON.parse(data);
+             console.log(data);
+        })
+        //添加商品
+        $("#pro").click(function () {
+            $.get("add-protect.php",{
+               uid:1,
+               pid:1,
+               numbers:1
+            },function (data) {
+                data=JSON.parse(data);
+                console.log(data);
+            })
+        })
+        //购物车列表
+        $(".cart").click(function () {
+            $.get("cart-list.php",{uid:1},function (data) {
+                data=JSON.parse(data);
+                console.log(data);
+            })
+        })
+        //修改购物车
+        //+
+        $(".car1").click(function () {
+            $.get("modifycart.php",{
+                uid:1,
+                pid:1,
+                nums:2
+            },function (data) {
+                console.log(data);
+             /*   data=JSON.parse(data);
+                console.log(data);*/
+            })
+        })
+        //-
+        $(".car2").click(function () {
+            $.get("modifycart.php",{
+                uid:1,
+                pid:1,
+                nums:-2
+            },function (data) {
+                console.log(data);
+                /*   data=JSON.parse(data);
+                   console.log(data);*/
+            })
+        })
+        //del
+        $(".car3").click(function () {
+            $.get("modifycart.php",{
+                uid:1,
+                pid:1,
+                nums:0
+            },function (data) {
+                console.log(data);
+                /*   data=JSON.parse(data);
+                   console.log(data);*/
+            })
+        })
+
+    })
+</script>
+</html>
